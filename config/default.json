@@ -1,0 +1,23 @@
+{
+  "api": {
+    "hostname": "localhost",
+    "port": 30000
+  },
+  "bot": {
+    "anonymousId": "",
+    "nickname": "sugar_bot",
+    "topic": ""
+  },
+  "logger": {
+    "anonymousId": "",
+    "nickname": "cotton_bot",
+    "topic": ""
+  },
+  "mongodb": {
+    "host": "localhost",
+    "port": 27017,
+    "dbname": "cq",
+    "username": "",
+    "password": ""
+  }
+}

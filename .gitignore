@@ -1,0 +1,5 @@
+node_modules/
+cq.log
+.env
+config/*
+!config/default.json

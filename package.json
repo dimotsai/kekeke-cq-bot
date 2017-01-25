@@ -1,0 +1,41 @@
+{
+  "name": "kekeke-logger",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bluebird": "^3.4.6",
+    "body-parser": "^1.15.2",
+    "chokidar": "^1.6.1",
+    "config": "^1.24.0",
+    "cors": "^2.8.1",
+    "entities": "^1.1.1",
+    "escape-string-regexp": "^1.0.5",
+    "express": "^4.14.0",
+    "google-spreadsheet": "^2.0.3",
+    "googleapis": "^14.1.0",
+    "html-entities": "^1.2.0",
+    "jsonfile": "^2.4.0",
+    "kekeke": "^0.1.0",
+    "lodash": "^4.16.6",
+    "mathjs": "^3.7.0",
+    "mongodb": "^2.2.11",
+    "morgan": "^1.7.0",
+    "opencc": "^1.0.4",
+    "request": "^2.78.0",
+    "request-promise": "^4.1.1",
+    "uuid": "^2.0.3",
+    "wcwidth": "^1.0.1",
+    "weighted": "^0.3.0",
+    "ws": "^1.1.1"
+  },
+  "devDependencies": {
+    "eslint": "^3.14.0",
+    "eslint-config-xo-space": "^0.15.0"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "extends": [
+    "xo-space",
+    "xo-space/esnext"
+  ]
+}
