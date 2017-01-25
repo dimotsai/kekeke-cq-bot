@@ -4,6 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "server": "node src/server.js",
+    "bot": "node src/bot.js",
+    "logger": "node src/logger.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
