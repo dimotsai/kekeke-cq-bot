@@ -15,11 +15,12 @@ const modules = [
   require('./bot-modules/rank'),
   require('./bot-modules/math'),
   require('./bot-modules/faq'),
-  require('./bot-modules/conversations'),
   require('./bot-modules/greetings'),
+  require('./bot-modules/conversations/online'),
+  require('./bot-modules/conversations/local'),
   require('./bot-modules/miss')
 ];
 
-modules.map(m => m(bot));
+modules.forEach(m => m(bot));
 
 bot.run();
