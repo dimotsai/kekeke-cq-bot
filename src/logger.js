@@ -15,7 +15,7 @@ db
   .then(collection => {
     client.on('message', m => {
       collection.insert(m);
-      if (m.getPublisher() === Message.Publishers.clientTransport) {
+      if (m.getPublisher() === Message.publishers.clientTransport) {
         console.log(`${m.getSender().nickName}: ${m.getContent()}`);
       }
     });
