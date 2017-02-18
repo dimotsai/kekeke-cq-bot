@@ -8,6 +8,7 @@ const escapeStringRegexp = require('escape-string-regexp');
 const bodyParser = require('body-parser');
 const mongodb = require('mongodb');
 const entities = new AllHtmlEntities();
+const ImageUrl = require('./utils/ImageUrl');
 
 const mongodbServer = new mongodb.Server(
   config.get('mongodb.host'),
@@ -91,12 +92,11 @@ db
     });
 
     app.get('/api/images', (req, res) => {
-      const imageRegex = /(https?:\/\/)(www\.)?[-a-zA-Z0-9@:%._+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_+.~#?&\\/=]*)\.(?:png|jpe?g|gif|gifv|mp4)(\?(?:&?[^\s=&]*(=[^\s=&]*)?)*)?/ig;
       const criteria = {
         $and: [{
           'payload.content': {$regex: /^(?!delete)/i}
         }, {
-          'payload.content': {$regex: imageRegex}
+          'payload.content': {$regex: ImageUrl.getRegex()}
         }]
       };
       const pipeline = [{$match: criteria}];
@@ -121,33 +121,34 @@ db
 
       const collection = db.collection('messages');
 
-      Promise
-        .resolve()
-        .then(() => Promise.all([
-          collection.aggregate(pipeline).toArray(),
-          collection.find(criteria).count()
-        ]))
-        .then(([items_, count]) => {
-          const items = items_.reduce((arr, it) => {
-            const text = it.payload.content;
-            const matches = text.match(imageRegex);
-            // for multiple pics in one message
-            return arr.concat(matches.map(m => {
-              return {
-                senderPublicId: it.payload.senderPublicId,
-                senderNickName: it.payload.senderNickName,
-                url: entities.decode(m),
-                text: it.payload.content,
-                date: it.payload.date
-              };
-            }));
-          }, []);
-          res.send({items, count});
-        })
-        .catch(e => {
-          console.error(e);
-          res.sendStatus(400);
-        });
+      Promise.all([
+        collection.aggregate(pipeline).toArray(),
+        collection.find(criteria).count()
+      ])
+      .then(([items_, count]) => {
+        const items = items_.reduce((arr, it) => {
+          const text = it.payload.content;
+          const urls = ImageUrl.parse(text);
+          const extra = [];
+
+          // for multiple pics in one message
+          for (const url of urls) {
+            extra.push({
+              senderPublicId: it.payload.senderPublicId,
+              senderNickName: it.payload.senderNickName,
+              url: entities.decode(url),
+              text: it.payload.content,
+              date: it.payload.date
+            });
+          }
+          return arr.concat(extra);
+        }, []);
+        res.send({items, count});
+      })
+      .catch(e => {
+        console.error(e);
+        res.sendStatus(400);
+      });
     });
 
     app.get('/api/users', (req, res) => {
