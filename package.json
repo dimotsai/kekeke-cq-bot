@@ -1,6 +1,6 @@
 {
-  "name": "kekeke-logger",
-  "version": "1.0.0",
+  "name": "kekeke-cq-bot",
+  "version": "1.0.1",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -24,12 +24,12 @@
     "googleapis": "^14.1.0",
     "html-entities": "^1.2.0",
     "jsonfile": "^2.4.0",
-    "kekeke": "^0.1.0",
+    "kekeke": "^0.2.0",
     "lodash": "^4.16.6",
     "mathjs": "^3.7.0",
     "mongodb": "^2.2.11",
     "morgan": "^1.7.0",
-    "opencc": "^1.0.4",
+    "opencc": "^1.0.5",
     "request": "^2.78.0",
     "request-promise": "^4.1.1",
     "uuid": "^2.0.3",
