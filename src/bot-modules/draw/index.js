@@ -7,6 +7,5 @@ module.exports = bot => {
     const weights = [0.13, 0.87];
     const image = weighted.select(images, weights) + '#' + uuid.v4();
     res.reply(image);
-    setTimeout(() => res.deleteMedia(image), 60 * 1000);
   });
 };

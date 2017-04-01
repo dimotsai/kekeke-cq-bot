@@ -8,6 +8,10 @@ const {Bot} = require('kekeke');
 // settings
 const bot = new Bot(config.get('bot.anonymousId'), config.get('bot.topic'), config.get('bot.nickname'));
 
+const middlewares = [
+  require('./bot-middleware/auto-delete-image')
+];
+
 const modules = [
   require('./bot-modules/wiki'),
   require('./bot-modules/draw'),
@@ -21,6 +25,7 @@ const modules = [
   require('./bot-modules/miss')
 ];
 
+middlewares.forEach(m => m(bot));
 modules.forEach(m => m(bot));
 
 bot.run();
