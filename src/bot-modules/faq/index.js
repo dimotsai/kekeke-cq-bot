@@ -8,4 +8,8 @@ module.exports = bot => {
   bot.hear(/因該/, res => {
     res.reply('http://i.imgur.com/FjPyP6c.png');
   });
+
+  bot.hear(/名子/, res => {
+    res.reply('http://imgur.com/Og9cic9.png');
+  });
 };

@@ -15,7 +15,7 @@ module.exports = bot => {
     res.reply(`${res.match[1]} (hug)`);
   });
 
-  bot.hear(/^(安安|早安|午安|晚安|日安|早上好|晚上好|hi|hello)/i, res => {
+  bot.hear(/^(?:大家|各位|諸位|諸君)?(安安|早安|午安|晚安|日安|早上好|晚上好|hi|hello)/i, res => {
     res.reply(`${res.match[1]} (hug)`);
   });
 
@@ -27,7 +27,7 @@ module.exports = bot => {
     res.reply(`我 (grin)`);
   });
 
-  bot.hear(/^(先去?睡了?|來去?睡|去睡了?|睡覺去?|我?要睡了?)/i, res => {
+  bot.hear(/^(先去?睡了?|來去?睡|去睡了?|睡覺去?|我?要睡了?|(想|該)去?睡覺?了)/i, res => {
     res.reply('祝好夢 (sleep)');
   });
 

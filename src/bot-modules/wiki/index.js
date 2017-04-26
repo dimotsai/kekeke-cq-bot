@@ -3,15 +3,16 @@ const GoogleSpreadsheet = require('google-spreadsheet');
 const spreadsheetKey = '1JuAuVtinvco2bIKCb7dA98Ua0njrlGlEAQgDo1wgIec';
 const sheetId = 'od1cr0w';
 const doc = Promise.promisifyAll(new GoogleSpreadsheet(spreadsheetKey));
-const OpenCC = require('opencc');
-const opencc = new OpenCC('s2t.json');
+// const OpenCC = require('opencc');
+// const opencc = new OpenCC('s2t.json');
 const escapeStringRegexp = require('escape-string-regexp');
 
 module.exports = bot => {
   bot.respond(/^(分析|被動|專武|專武被動)\s*(.+)/i, res => {
     doc.getRowsAsync(sheetId, {}).then(rows => {
       // support simplified chinese
-      const keyword = opencc.convertSync(res.match[2]);
+      // const keyword = opencc.convertSync(res.match[2]);
+      const keyword = res.match[2];
       const pattern = new RegExp(escapeStringRegexp(keyword), 'i');
       const target = rows.find(e => {
         if (e['角色'].match(pattern) || e['別稱'].match(pattern)) {

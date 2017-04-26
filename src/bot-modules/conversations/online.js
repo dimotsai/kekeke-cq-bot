@@ -24,7 +24,7 @@ module.exports = bot => {
       });
     });
   }, res => {
-    const replies = _.range(1, 6).map(index => {
+    const replies = _.range(1, 11).map(index => {
       return foundRow[`反應${index}`];
     }).filter(r => r !== '');
     res.reply(_.sample(replies));

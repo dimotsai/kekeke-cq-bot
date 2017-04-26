@@ -2,7 +2,7 @@ const wcwidth = require('wcwidth');
 
 module.exports = bot => {
   const ratio = 3.692;
-  bot.respond(/^(燒毀?|110|抓|非洲|花式)\s+(.+)/, res => {
+  bot.respond(/^(燒毀?|110|抓|非洲|花式|拜|賀)\s+(.+)/, res => {
     let emoji = '(l)';
 
     switch (res.match[1]) {
@@ -19,6 +19,12 @@ module.exports = bot => {
         break;
       case '花式':
         emoji = ['(cop)', '(boy)', '(fire)', '(girl)'];
+        break;
+      case '拜':
+        emoji = ['(pray)'];
+        break;
+      case '賀':
+        emoji = ['(tada)'];
         break;
       default:
         break;
