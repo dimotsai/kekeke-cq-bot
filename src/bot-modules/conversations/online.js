@@ -14,7 +14,7 @@ const getCachedRowsAsync = function (sheetId, options) {
 
 module.exports = bot => {
   let foundRow;
-  bot.listen((content, isResponse) => {
+  bot.listen((content, isResponse, isBroadcast) => {
     return getCachedRowsAsync(sheetId, {}).then(rows => {
       return rows.find(row => {
         const isGlobal = row['全域'];
@@ -25,7 +25,7 @@ module.exports = bot => {
           foundRow = row;
           if (isResponse && !isGlobal) {
             return true;
-          } else if (!isResponse && isGlobal) {
+          } else if (isBroadcast && isGlobal) {
             return true;
           }
         }
