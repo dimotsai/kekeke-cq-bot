@@ -1,8 +1,20 @@
 # kekeke-cq-bot
 sugar_bot &amp; cotton_bot on https://kekeke.cc/crusaders-quest
 
-## Installation
+## Requirements
+### For Windows
+Please install the following packages before started:
+* https://nodejs.org/en/
+* https://git-scm.com/
 
+After install node.js and git, open `Node.js command prompt` and move to [Installation](#installation) section
+
+### For Linux
+Please install the following packages:
+* git
+* nodejs
+
+## Installation
 Download required projects:
 ```
 git clone https://github.com/dimotsai/kekeke
@@ -53,7 +65,7 @@ For example:
   }
 }
 ```
-Note: You can find anonymousId in the local storage of kekeke.cc with the name `hiroba.anonymousId`.
+Note: You can find anonymousId in the local storage of kekeke.cc with the name `hiroba.anonymousId`. To inspect the local storage, you can use browsers' `developer tools`!
 
 To run a chat bot, you simply run:
 ```
