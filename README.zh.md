@@ -34,7 +34,7 @@ npm link kekeke
 npm install
 ```
 
-## Start a bot manually
+## 手動啟動 bot
 修改 config/default.json，例如：
 ```
 {
