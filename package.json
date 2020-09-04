@@ -28,7 +28,7 @@
     "kekeke": "^0.3.0",
     "lodash": "^4.16.6",
     "mathjs": "^3.7.0",
-    "mongodb": "^2.2.11",
+    "mongodb": "^3.6.1",
     "morgan": "^1.7.0",
     "request": "^2.78.0",
     "request-promise": "^4.1.1",
